@@ -1,25 +1,21 @@
-# README
+**Rails 5.1.6**
+**Ruby 2.4.1**
+**MySql 5.7.21**
+# Installation and configuration
+### 1. Bundle install
+### 2. Аccess to the database
+##### config/database.yml
+#
+> username: **your username**
+> password: **your password**
+### 3. Console command
+> rake db:migrate
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### 4. Console command
+> rails s
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# ikantam-task
+# Accessing the Twitter app
+##### config/secrets.yml
+#
+> twitter_api_key
+> twitter_api_secret
