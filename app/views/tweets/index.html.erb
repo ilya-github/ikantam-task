@@ -1,0 +1,37 @@
+<h1 class="text-center">Tweets</h1>
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3 text-center">
+      <%= form_for @tweet, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
+        <%= f.text_area :body, size: "30x6", class: "form-control" %></br>
+        <%= f.file_field :image %>
+        <%= f.submit "Tweet", class: "btn btn-primary btn-lg" %>
+      <% end %>
+    </div>
+
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <p id="notice"><%= notice %></p>
+      <% if @tweets.size > 0 %>
+        <h1 class="text-center">Listing Tweets</h1>
+      <% end %>
+      <% @tweets.each do |tweet| %>   
+        <div class="col-md-12 form-group tweet_item">
+          <div class="col-md-12">
+            <%= image_tag(tweet.image.url, alt: 'Image', class: "img-tweets img-responsive") if tweet.image? %>
+            <%= tweet.body %>
+          </div>
+          <div class="col-md-6 text-left"> <%= link_to 'Show', tweet %> |
+            <%= link_to 'Destroy', tweet, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+          <div class="col-md-6 text-right">
+            <%= tweet.created_at.to_s(:ru_datetime) %>
+            <% unless current_user.token.blank? %>
+            <a id="link_view_tweet" target="blank" href="https://twitter.com/<%= current_user.name %>/status/<%= tweet.twitter_url %>"#>View  </a>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

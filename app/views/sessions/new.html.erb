@@ -1,0 +1,11 @@
+<div class="container">
+  <h1 class="text-center">Registration of users</h1>
+  <div class="col-md-4 col-md-offset-4 text-center">
+     <%= form_for @user, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
+       <%= f.email_field :email, class: "form-control", placeholder: "Email address" %></br>
+       <%= f.password_field :password, class: "form-control", placeholder: "Password" %></br>
+       <%= f.submit "Register", class: "btn btn-success btn-lg" %>
+     <% end %>
+  </div>
+</div>
+    

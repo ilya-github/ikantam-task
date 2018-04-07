@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+<div class="col-md-12 text-center">
+  <strong>User:</strong></br>
+  <h2 class="txt-blue"><%= current_user.name %></h2>
+</div>
+<div class="col-md-12 text-center txt-gray">
+  <h2><%= @tweet.body %></h2>
+</div>
+<div class="col-md-4 col-md-offset-4 text-center">
+	<%= image_tag(@tweet.image.url, alt: 'Image', class: "img-responsive") if @tweet.image? %>
+</div>
+<div class="col-md-12 text-center">
+  <%= link_to 'Back', tweets_path, class: "btn btn-success" %>
+</div>
